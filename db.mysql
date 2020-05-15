@@ -1,0 +1,94 @@
+DROP SCHEMA IF EXISTS `patrasebike`;
+CREATE SCHEMA `patrasebike` DEFAULT CHARACTER SET utf8 ;
+USE `patrasebike`;
+
+# Users
+DROP TABLE IF EXISTS `patrasebike`.`users`;
+CREATE TABLE `patrasebike`.`users` (
+	`username` VARCHAR(25) NOT NULL,
+	`password` VARCHAR(45) NOT NULL,
+	`admin` TINYINT(1) NOT NULL DEFAULT 0,
+	`name` VARCHAR(45) NOT NULL,
+	`lname` VARCHAR(45) NULL,
+	`address` VARCHAR(150) NULL,
+	`score` TINYINT(5) NOT NULL DEFAULT 0
+	PRIMARY KEY (`username`),
+	UNIQUE INDEX `username_UNIQUE` (`username` ASC))
+ENGINE = InnoDB;
+
+# Bikes
+DROP TABLE IF EXISTS `patrasebike`.`bikes`;
+CREATE TABLE `patrasebike`.`bikes` (
+	`id` TINYINT(5) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(45) NOT NULL,
+	`brand` VARCHAR(45) NOT NULL,
+	`make` VARCHAR(45) NULL,
+	`rating` FLOAT NOT NULL DEFAULT 0,
+	`mileage` INT NOT NULL DEFAULT 0,
+	`comments` VARCHAR(500) NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `id_UNIQUE` (`id` ASC))
+ENGINE = InnoDB;
+
+# Trackers
+DROP TABLE IF EXISTS `patrasebike`.`trackers`;
+CREATE TABLE `patrasebike`.`trackers` (
+	`id` TINYINT(4) NOT NULL AUTO_INCREMENT,
+	`bike` TINYINT(4) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+	INDEX `fk_trackers_1_idx` (`bike` ASC),
+	CONSTRAINT `fk_trackers_1`
+		FOREIGN KEY (`bike`)
+		REFERENCES `patrasebike`.`bikes` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+# Equipment
+
+# Points
+DROP TABLE IF EXISTS `patrasebike`.`points`;
+CREATE TABLE `patrasebike`.`points` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(45) NOT NULL,
+	`address` VARCHAR(150) NULL,
+	`lat` FLOAT NULL DEFAULT 0,
+	`long` FLOAT NULL DEFAULT 0,
+	`type` TINYINT(2) NOT NULL DEFAULT 0,
+	`owner` VARCHAR(25) NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+	INDEX `fk_points_1_idx` (`owner` ASC),
+	CONSTRAINT `fk_point_owner`
+		FOREIGN KEY (`owner`)
+		REFERENCES `patrasebike`.`users` (`username`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+# Reservations
+DROP TABLE IF EXISTS `patrasebike`.`reservations`;
+CREATE TABLE `patrasebike`.`reservations` (
+	`user` VARCHAR(25) NOT NULL,
+	`bike` TINYINT(5) NOT NULL,
+	`start` DATETIME NOT NULL,
+	`end` DATETIME NOT NULL,
+	`cost` TINYINT(4) NOT NULL,
+	`details` VARCHAR(500) NULL,
+	PRIMARY KEY (`user`, `bike`),
+	UNIQUE INDEX `user_UNIQUE` (`user` ASC),
+	UNIQUE INDEX `bike_UNIQUE` (`bike` ASC),
+	CONSTRAINT `fk_reservations_user`
+		FOREIGN KEY (`user`)
+		REFERENCES `patrasebike`.`users` (`username`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE,
+	CONSTRAINT `fk_reservations_bike`
+		FOREIGN KEY (`bike`)
+		REFERENCES `patrasebike`.`bikes` (`id`)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE)
+ENGINE = InnoDB;
+
+# Rides
