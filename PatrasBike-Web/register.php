@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'ekampourakis';
 $DATABASE_PASS = 'toor';
-$DATABASE_NAME = 'crowd';
+$DATABASE_NAME = 'patrasebike';
 // Try and connect using the info above.
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 mysqli_set_charset($con,"utf8");
