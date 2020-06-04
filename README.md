@@ -52,3 +52,42 @@ email, or any other method with the owners of this repository and then make a pu
 
 Never, **ever** push changes to the development branch directly except you **really** know what you're doing.
 Please note that we have a code of conduct and you must follow it in all your interactions with the project.
+
+### Workflow
+
+- Make sure you are at the appropriate feature branch.
+- Update your codebase from that branch.
+- Commit your changes in a logical manner and frequency.
+- Before pushing make sure your code works as it should. Never push broken code.
+- When your feature is ready make a pull request.
+
+### Documentation
+
+Because this project needs to be maintained by future members of the team, we take special care to make it viable for them.
+Each codefile, module and library used in the code must be thoroughly documented.
+Please avoid using slang or unnecessary comments. Write code that explains itself,
+use proper variable names and split the code in files and modules to avoid spaghetti code.
+We encourage the creation and use of libraries to enhance the modularity of the code and increase the reuse factor.
+We use the [Doxygen](http://www.doxygen.nl/) style for the documentation process.
+
+### Commit Messages
+
+- Use the present tense ("Add feature" not "Added feature")
+- Use the imperative mood ("Move cursor to..." not "Moves cursor to...")
+- Limit the first line to 72 characters or less
+- Reference issues and pull requests liberally after the first line
+- When only changing documentation, include `[ci skip]` in the commit title
+
+### Pull Request Process
+
+1. Ensure any external dependencies are removed and internally linked when doing a build.
+2. Update the README.md and the documentation with the details of the changes.
+   ~~3. Increase the version numbers when creating a new release. The versioning scheme we use is [SemVer](http://semver.org)~~
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the release versions available, visit [Releases](https://github.com/ekampourakis/UoP6d/tags).
+
+## Authors
+
+See the list of [contributors](https://github.com/ekampourakis/UoP6d/contributors) who participated in this project.
