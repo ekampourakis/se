@@ -16,30 +16,27 @@ As most companies still use Windows machines in their offices, we thought it was
 For this purpose, we used the .NET Framework 4.0 and VB.NET to create the administration app.
 
 ### Framework
-(.NET Framework 4.0)[https://dotnet.microsoft.com/download/dotnet-framework/net40] comes pre-installed by default on all new Windows 10 distributions and is also easily installed on older Windows versions.
+[.NET Framework 4.0](https://dotnet.microsoft.com/download/dotnet-framework/net40) comes pre-installed by default on all new Windows 10 distributions and is also easily installed on older Windows versions.
 
 ### Compiling
-For developing the application, (Visual Studio)[https://visualstudio.microsoft.com/] is required. Any free or paid version is adequate for compiling and debugging the application. 
+For developing the application, [Visual Studio](https://visualstudio.microsoft.com/) is required. Any free or paid version is adequate for compiling and debugging the application. 
 After installing the IDE, the project file `PatrasBike/PatrasBike.sln` can be loaded. You can then build the project and/or run the app.
 
 ### Distributing
 After compiling, a single executable file is generated that can be distributed to the companies. Make sure to sign the certificates for the compiled app before shipping, or else Windows will most probably block the application as not secure.
 
-
-
-
 ## Web App
 As most bikers don't usually carry a laptop with them when they ride, we decided to create mobile friendly web application for serving the platform. Although a native Android and iOS app would be more straight forward to make, the implementation and difficulty of this task rendered it out of context.
 
 ### Framework
-(PHP 7)[https://www.php.net/] is used for the web app.
+[PHP 7](https://www.php.net/) is used for the web app.
 We recommend using (Apache 2)[https://httpd.apache.org/] on a Linux machine for serving the web pages.
 
 ### Distributing
 The process is simple, you just have to put the files inside your web server's directory and run the server. Then the users have to navigate into the site using the URL you have for your server using any web browser.
 
 ## Database
-We are using a (MySQL)[https://www.mysql.com/] database for storing all the information. MySQL must be installed on the server machine and be accessible from the PHP installation. The credentials and database name can be altered in the `PatrasBike-Web/config.php` file.
+We are using a [MySQL](https://www.mysql.com/) database for storing all the information. MySQL must be installed on the server machine and be accessible from the PHP installation. The credentials and database name can be altered in the `PatrasBike-Web/config.php` file.
 
 ## Contributing
 **Please follow a Git tutorial before working on this project**.
@@ -90,4 +87,4 @@ We use [SemVer](http://semver.org/) for versioning. For the release versions ava
 
 ## Authors
 
-See the list of [contributors](https://github.com/ekampourakis/UoP6d/contributors) who participated in this project.
+See the list of [contributors](https://github.com/ekampourakis/se/contributors) who participated in this project.
